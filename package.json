@@ -1,4 +1,9 @@
 {
+  "name": "code-certs.dengchao.fun",
+  "author": {
+    "name": "DevDengChao",
+    "url": "https://github.com/DevDengChao"
+  },
   "private": true,
   "scripts": {
     "build": "nuxt build",
