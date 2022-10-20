@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="bg-slate-50">
     <app-header/>
-    <slot/>
-    <div> APP Footer</div>
+    <div class="container m-auto">
+      <slot/>
+    </div>
+    <app-footer/>
   </div>
 </template>
