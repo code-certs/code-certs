@@ -1,42 +1,4 @@
-# Nuxt 3 Minimal Starter
+# Code: Certs | HTTPS 证书免运维服务
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+您好, 这里是 [Code: Certs 官方网站](https://code-certs.dengchao.fun) 的代码仓库, 同时也是 Code: Certs 的主要社区运营场所.
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
