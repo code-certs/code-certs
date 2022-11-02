@@ -544,10 +544,10 @@
     vite-plugin-checker "^0.5.1"
     vue-bundle-renderer "^0.4.4"
 
-"@nuxtjs/tailwindcss@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.npmmirror.com/@nuxtjs/tailwindcss/-/tailwindcss-6.0.1.tgz#420654f3ec5bc15f293b0315586706b007b0f98e"
-  integrity sha512-C6wdGq6CJDfHWGpDf5PNon1elJMFzMbb/x5mA2Zr9854Xq8e6DgfTMMM7H5x5RpqFV61CfFDMKNPyFrNXdAj0g==
+"@nuxtjs/tailwindcss@^6.1.2":
+  version "6.1.2"
+  resolved "https://registry.npmmirror.com/@nuxtjs/tailwindcss/-/tailwindcss-6.1.2.tgz#c2e90110837f2a8de55fa541830ec99416277cc0"
+  integrity sha512-cIyqbyvceZS9DGiDYwwBlUS7vB6gOlBnvQ2QAAvrL2VzK0MA4AH2yaqCLJuHrzvLUp1v3uRw22KLvY6w2t8pCQ==
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.12"
     "@nuxt/postcss8" "^1.1.3"
@@ -1708,6 +1708,11 @@ destr@^1.1.1:
   resolved "https://registry.npmmirror.com/destr/-/destr-1.1.1.tgz#910457d10a2f2f247add4ca4fdb4a03adcc49079"
   integrity sha512-QqkneF8LrYmwATMdnuD2MLI3GHQIcBnG6qFC2q9bSH430VTCDAVjcspPmUaKhPGtAtPAftIUFqY1obQYQuwmbg==
 
+destr@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmmirror.com/destr/-/destr-1.2.0.tgz#8adb17fa3861b8032ea1bba92f60ba989a9ff119"
+  integrity sha512-JG+cG4ZPB1L27sl2C2URg8MIOmIUtTbE5wEx02BpmrTCqg/hXxFKXsYsnODl5PdpqNRaS1KQGUQ56V8jk8XpYQ==
+
 destroy@1.2.0, destroy@^1.0.4:
   version "1.2.0"
   resolved "https://registry.npmmirror.com/destroy/-/destroy-1.2.0.tgz#4803735509ad8be552934c67df614f94e66fa015"
@@ -2475,13 +2480,23 @@ gzip-size@^7.0.0:
   dependencies:
     duplexer "^0.1.2"
 
-h3@^0.8.1, h3@^0.8.4, h3@^0.8.5:
+h3@^0.8.1, h3@^0.8.4:
   version "0.8.4"
   resolved "https://registry.npmmirror.com/h3/-/h3-0.8.4.tgz#e9fa03defd67859a30e2f6b6473029732af42f95"
   integrity sha512-U7ZD/Te+LBS1IpUvsZRe+E+ZiA3zQS0u43DMrZ+raiVObeYe0G5F4Kr/g6Fn2fH92Np0ROkij/wEhkAMbUsBdQ==
   dependencies:
     cookie-es "^0.5.0"
     destr "^1.1.1"
+    radix3 "^0.2.1"
+    ufo "^0.8.6"
+
+h3@^0.8.5:
+  version "0.8.6"
+  resolved "https://registry.npmmirror.com/h3/-/h3-0.8.6.tgz#8095ef998fe14769b87170b7c8b68ba9c54973d5"
+  integrity sha512-CSWNOKa3QGo67rFU2PhbFTp0uPJtilNji2Z0pMiSRQt3+OkIW0u3E1WMJqIycLqaTgb9JyFqH/S4mcTyyGtvyQ==
+  dependencies:
+    cookie-es "^0.5.0"
+    destr "^1.2.0"
     radix3 "^0.2.1"
     ufo "^0.8.6"
 
