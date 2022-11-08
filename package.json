@@ -16,6 +16,6 @@
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.1.2",
     "git-repo-info": "^2.1.1",
-    "nuxt": "3.0.0-rc.12"
+    "nuxt": "3.0.0-rc.13"
   }
 }
