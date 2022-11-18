@@ -5,7 +5,7 @@
 <template>
   <main>
     <div id="concept" class="p-32 text-center">
-      <h2 class="text-2xl"><span>Code: Certs</span> 是一项 HTTPS 证书免运维服务.</h2>
+      <h2 class="text-2xl"><span>Code: Certs</span> 是一项适用于个人与小型团队的 HTTPS 证书免运维服务.</h2>
       <ol class="text-lg mt-4">
         <li>它能定期地为您申请免费的 HTTPS 证书, 并提供 PEM 格式的证书文件以供下载.</li>
         <li>如果您愿意, 它还可以将申请到的证书及时部署到需要的地方.</li>
@@ -18,7 +18,9 @@
         <li id="issuance-advantage" class="mt-4">
           我们能帮您更快更方便地申请到一张有效的 HTTPS 证书:
           <ul>
-            <li>与购买昂贵的付费证书相比, 我们向您提供免费的 HTTPS 证书, 以便降低您使用 HTTPS 的门槛.</li>
+            <li>与购买昂贵的付费证书相比, 我们协助您申请由 Let's Encrypt 签发的免费 DV 型 HTTPS 证书, 以便降低您使用
+              HTTPS 的门槛.
+            </li>
             <li>与申请云平台自带的免费证书相比, 我们向您提供更短的证书签发时间, 跳过难熬的人工审核等待时间, 平均 3
               分钟就能申请好证书.
             </li>
