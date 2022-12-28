@@ -23,8 +23,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build job
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -47,19 +46,8 @@ jobs:
         run: yarn
       - name: Static HTML export with Nuxt
         run: yarn generate
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./dist
+      - name: Setup @serverless-devs/s
+        run: s config add --AccessKeyId ${{FC_ACCESS_KEY_ID}} --AccessKeySecret ${{FC_ACCESS_KEY_SECRET}}
+      - name: Deploy
+        run: yarn deploy
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
