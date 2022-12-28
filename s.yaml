@@ -1,0 +1,22 @@
+edition: 1.0.0
+name: code-certs.dengchao.fun
+access: default
+vars:
+  region: cn-shenzhen
+services:
+  default:
+    actions:
+      pre-deploy:
+        - plugin: website-fc
+    component: devsapp/fc
+    props:
+      region: cn-shenzhen
+      service:
+        name: www
+      function:
+        name: code-certs-dengchao-fun
+        handler: dummy-handler
+        timeout: 60
+        runtime: custom
+        instanceConcurrency: 100
+        codeUri: ./.output/public

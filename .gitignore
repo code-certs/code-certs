@@ -1,10 +1,11 @@
 .idea/
 .nuxt/
+.output/
+.s/
+dist/
 node_modules/
 *.log*
 .nitro
 .cache
-.output
 .env
-dist/
 public/git.json

@@ -11,7 +11,8 @@
     "pregenerate": "node generate-git-info.js",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "s deploy function --use-local -y"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.2.0",
