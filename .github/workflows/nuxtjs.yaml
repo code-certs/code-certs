@@ -47,7 +47,10 @@ jobs:
       - name: Static HTML export with Nuxt
         run: yarn generate
       - name: Setup @serverless-devs/s
-        run: s config add --AccessKeyId ${{FC_ACCESS_KEY_ID}} --AccessKeySecret ${{FC_ACCESS_KEY_SECRET}}
+        env:
+          FC_ACCESS_KEY_ID: ${{ secrets.FC_ACCESS_KEY_ID }}
+          FC_ACCESS_KEY_SECRET: ${{ secrets.FC_ACCESS_KEY_SECRET }}
+        run: s config add --AccessKeyId $FC_ACCESS_KEY_ID --AccessKeySecret $FC_ACCESS_KEY_SECRET
       - name: Deploy
         run: yarn deploy
 
