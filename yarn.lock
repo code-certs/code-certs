@@ -790,10 +790,10 @@
   dependencies:
     progress "^2.0.3"
 
-"@serverless-devs/s@^2.1.7":
-  version "2.1.7"
-  resolved "https://registry.npmmirror.com/@serverless-devs/s/-/s-2.1.7.tgz#a20c542f28268112a3b59e1f86750dbb52c73d0b"
-  integrity sha512-LIN71Uprk5GLeDxYolbcffTF0HDRGyj1ZGDXeM/r/QM5ipKGCfzJCC6o9RqszAYtyyItRcOcdO0zzhZyacObng==
+"@serverless-devs/s@^2.1.9":
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-2.1.9.tgz#c6a13851a4372a82e783b64e42c2a8956a043c2e"
+  integrity sha512-jBIj3GrWmIL7RPFHyTGV6oJqE7k3aDAgV2B6oUYryn6XAzYDJsox3iHwiIZE+rh5TdHi9uTLP3PkRzz115sofw==
   dependencies:
     "@serverless-devs/core" latest
     "@serverless-devs/ui" latest
