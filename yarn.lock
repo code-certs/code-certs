@@ -1323,10 +1323,10 @@
   dependencies:
     progress "^2.0.3"
 
-"@serverless-devs/s@^2.1.12":
-  version "2.1.12"
-  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-2.1.12.tgz#6e0fa04c209f2f70735e83169ab42b4c73a4fc00"
-  integrity sha512-80dWQMLmbFJKyAAY0jdPz4cdHomK+fkE81uyVEEwxxxTttMx6raLOKkBVB3ODMNyXmxL++GUDRoT29c4FJ9u1w==
+"@serverless-devs/s@^2.1.14":
+  version "2.1.14"
+  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-2.1.14.tgz#3a76a92a211bb75acd361b6268ed6db39e8dc46c"
+  integrity sha512-xr/LT6cQbaUrKA1kW+NMOoecFiLzNo6r2fPwiW3VgU8J6yowiGDNXbDT3a85mrwM1r21rw+wT8x6edbaQnNlGg==
   dependencies:
     "@serverless-devs/core" latest
     "@serverless-devs/ui" latest
