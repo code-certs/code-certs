@@ -1257,10 +1257,10 @@
   dependencies:
     progress "^2.0.3"
 
-"@serverless-devs/s@^2.1.15":
-  version "2.1.15"
-  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-2.1.15.tgz#d3b2f84419dad977f175582986561a3027e0089e"
-  integrity sha512-OGEEfcRuknVl1lfKpIQUbxiPrOrVJFJmTbJ1CUbIc00eOD+OiZhwuXDT/9vuOCD7xpMUSvM2B2ddfHFvskIDAg==
+"@serverless-devs/s@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-2.2.0.tgz#83c23f417251a6a201f69ae89222b073fad685ae"
+  integrity sha512-YNM/wOerFViiOpV6Le/eAOysM2rMaDp90hYhzCJRocQ/ApoFncHz+ThCx7UH7Dr7R9jeC9S3EBNw1IB1jI0OTg==
   dependencies:
     "@serverless-devs/core" latest
     "@serverless-devs/ui" latest
