@@ -1272,10 +1272,10 @@
     walk-sync "^3.0.0"
     yaml "^1.10.2"
 
-"@serverless-devs/core@latest":
-  version "0.1.48"
-  resolved "https://registry.npmmirror.com/@serverless-devs/core/-/core-0.1.48.tgz#7661dfdafad33b5149b7f472f63af135a2d52e99"
-  integrity sha512-Jfdrmn2Oir9z9ogOglrAu44LZ+Y1P20tV6FbPF4hf2cNEFGck2UQvi8DtRwy9R+xTrCB+o4uEKgso9hP3EKGdA==
+"@serverless-devs/core@^0.1.65":
+  version "0.1.65"
+  resolved "https://registry.yarnpkg.com/@serverless-devs/core/-/core-0.1.65.tgz#67c7d19022c2fe42788c63a04370fe796a08d90d"
+  integrity sha512-VFkFOusZu9APavvZYPPUiCcePSLXSKMnoF+vXxCpSDwVZT92ZKqlptxxg6ljS+QHNRo7901Luqo4zsK73LFdlw==
 
 "@serverless-devs/credentials@^2.2.1":
   version "2.2.1"
@@ -1317,12 +1317,12 @@
   dependencies:
     progress "^2.0.3"
 
-"@serverless-devs/s@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-2.2.0.tgz#83c23f417251a6a201f69ae89222b073fad685ae"
-  integrity sha512-YNM/wOerFViiOpV6Le/eAOysM2rMaDp90hYhzCJRocQ/ApoFncHz+ThCx7UH7Dr7R9jeC9S3EBNw1IB1jI0OTg==
+"@serverless-devs/s@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-2.2.1.tgz#33acf745462db4e7e5654843271d3cb7c7da9b4d"
+  integrity sha512-pN6Hkf6+cDSkcscR321eH38kCpbrhlqYObmU+hfnnKWbjFy+deEEXseeielhakj6MgDojbHA21hoOyZxi6Jc8w==
   dependencies:
-    "@serverless-devs/core" latest
+    "@serverless-devs/core" "^0.1.65"
     "@serverless-devs/ui" latest
 
 "@serverless-devs/ui@latest":
