@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@serverless-devs/s": "^2.2.0",
+    "@serverless-devs/s": "^2.2.1",
     "git-repo-info": "^2.1.1",
     "nuxt": "^3.7.4",
     "postcss-custom-properties": "^13.3.2"
