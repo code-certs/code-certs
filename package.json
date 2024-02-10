@@ -18,7 +18,7 @@
     "@nuxtjs/tailwindcss": "^6.11.3",
     "@serverless-devs/s": "^2.2.2",
     "git-repo-info": "^2.1.1",
-    "nuxt": "^3.9.3",
+    "nuxt": "^3.10.1",
     "postcss-custom-properties": "^13.3.4"
   }
 }
