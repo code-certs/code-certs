@@ -1559,10 +1559,10 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.14.1.tgz#299eee74b7d87e116083ac5b1ce8dd9434668294"
   integrity sha512-wQGI+LY/Py20zdUPq+XCem7JcPOyzIJBm3dli+56DJsQOHbnXZFEwgmnC6el1TPAfC8lBT3m+z69RmLykNUbew==
 
-"@serverless-devs/s@^3.0.7":
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-3.0.7.tgz#e767d0845722edf3a7b3efa93af0a4d4c8a7a5ea"
-  integrity sha512-xO7r0HcJ3IgPUQKh1j2N4NKGCQGMkvtPatFLQRfR+O34iUKf5JHvFb33eYRq9bZfqrgVpHiNKIwqsW9nEQYnxA==
+"@serverless-devs/s@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-3.0.8.tgz#ca498c86403222f29944ffd7ca97bc2f99bc6dfd"
+  integrity sha512-4SxSAFPV4m1qObRj/BuvWdjwtdoxifH4279n/dh0ry4dBO5O2RaxfyMMuk2wLJ7DQWY78CO16jaHc3oGJH6AcQ==
 
 "@sigstore/bundle@^2.3.0", "@sigstore/bundle@^2.3.1":
   version "2.3.1"
