@@ -19,6 +19,6 @@
     "@serverless-devs/s": "^3.0.10",
     "git-repo-info": "^2.1.1",
     "nuxt": "^3.12.2",
-    "postcss-custom-properties": "^13.3.10"
+    "postcss-custom-properties": "^13.3.11"
   }
 }
