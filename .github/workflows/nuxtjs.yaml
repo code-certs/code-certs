@@ -52,7 +52,7 @@ jobs:
           FC_ACCESS_KEY_SECRET: ${{ secrets.FC_ACCESS_KEY_SECRET }}
         run: |
           export PATH=./node_modules/.bin/:$PATH
-          s config add --AccessKeyID $FC_ACCESS_KEY_ID --AccessKeySecret $FC_ACCESS_KEY_SECRET
+          s config add --AccessKeyID $FC_ACCESS_KEY_ID --AccessKeySecret $FC_ACCESS_KEY_SECRET -f
       - name: Deploy
         run: yarn deploy
 
