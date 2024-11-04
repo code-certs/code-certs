@@ -1288,10 +1288,10 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.22.4.tgz#3dd5d53e900df2a40841882c02e56f866c04d202"
   integrity sha512-j8pPKp53/lq9lMXN57S8cFz0MynJk8OWNuUnXct/9KCpKU7DgU3bYMJhwWmcqC0UU29p8Lr0/7KEVcaM6bf47Q==
 
-"@serverless-devs/s@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npmmirror.com/@serverless-devs/s/-/s-3.1.1.tgz#3cc7e022e6036a3d23ec83af56d966f4d3884216"
-  integrity sha512-cfqFz6Y98YN74pfwtJQ1cfrpQyp8lj/ijIBonkAAmqVFJ98/DYfNTag7a2pDy50NKEQ9h9hiZKyqL6aCaCzB/w==
+"@serverless-devs/s@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-3.1.2.tgz#db83a4c1d79371eca5ddb87c6c5044b884a41e09"
+  integrity sha512-jIuI96jZgVjNKslG9TfbGEB9vXH1yvgD0tF9DcR0xGg3tO6igoY4h2RNXV6fK+uByF+mpaLAy6Roc9Ab5rkbmA==
 
 "@sindresorhus/merge-streams@^2.1.0":
   version "2.3.0"
