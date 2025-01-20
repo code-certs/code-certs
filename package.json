@@ -15,7 +15,7 @@
     "deploy": "s deploy function --use-local -y"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.13.0",
+    "@nuxtjs/tailwindcss": "^6.13.1",
     "@serverless-devs/s": "^3.1.5",
     "git-repo-info": "^2.1.1",
     "nuxt": "^3.15.1",

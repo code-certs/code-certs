@@ -1085,10 +1085,10 @@
     vite-plugin-checker "^0.8.0"
     vue-bundle-renderer "^2.1.1"
 
-"@nuxtjs/tailwindcss@^6.13.0":
-  version "6.13.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-6.13.0.tgz#1e9a93f7e00a074f664079440478fdff32af6963"
-  integrity sha512-AU3PEJZujQBR53I16NMywmhgQw2AJlIjgE8X25BBk3o+6XcW8WI1y80m7THaCNOm/AX1YHPM3ZQbJuW7um3kWw==
+"@nuxtjs/tailwindcss@^6.13.1":
+  version "6.13.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-6.13.1.tgz#9c4dfc71c4fcb8382af78c8a4fa63eaba62d4ea9"
+  integrity sha512-atL2SaPsxLfMTlXUQvr1UpDYdz6ocNOhH35H+t7M++g4r79QiQScJ7XuyyMR9AyBN19lkPA3nw7NXxazXmYxlA==
   dependencies:
     "@nuxt/kit" "^3.15.1"
     autoprefixer "^10.4.20"
