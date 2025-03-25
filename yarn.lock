@@ -1168,10 +1168,10 @@
   resolved "https://registry.npmmirror.com/@sec-ant/readable-stream/-/readable-stream-0.4.1.tgz#60de891bb126abfdc5410fdc6166aca065f10a0c"
   integrity sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg==
 
-"@serverless-devs/s@^3.1.6":
-  version "3.1.6"
-  resolved "https://registry.npmmirror.com/@serverless-devs/s/-/s-3.1.6.tgz#20729acc4de7bf8534207e20027782e2d99b0834"
-  integrity sha512-hqDp4g8vEFxcRG8Aqfc4HnlxyfL1fwTLjR3XnpFctqZAoCcCXQQf4gR8yS8sNv54fZmEyCrcXFyG/5bAwHn3aw==
+"@serverless-devs/s@^3.1.8":
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-3.1.8.tgz#f7f6597d68f21f27fdd824ee74a156c31ca0cb9e"
+  integrity sha512-969N7AFHgFKazDuZshD866Zpi39UyVdJfeOoYopDa+gGeiSJYHAndzrQeGZOoZF3IS95ZVKkB2SIlAieyoH5vA==
 
 "@sindresorhus/is@^7.0.1":
   version "7.0.1"
