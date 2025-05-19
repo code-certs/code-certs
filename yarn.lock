@@ -1527,10 +1527,10 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.40.1.tgz#8078b71fe0d5825dcbf83d52a7dc858b39da165c"
   integrity sha512-ECyOuDeH3C1I8jH2MK1RtBJW+YPMvSfT0a5NN0nHfQYnDSJ6tUiZH3gzwVP5/Kfh/+Tt7tpWVF9LXNTnhTJ3kA==
 
-"@serverless-devs/s@^3.1.9":
-  version "3.1.9"
-  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-3.1.9.tgz#02d85609d7446340379ea35806df23d2784b1d00"
-  integrity sha512-9QfxsRYA1+UndtNKZiwQjzZRJ/LlyW+TsVb99i+L11Qh2Ol1wcrjKw/t0r11uRpxmTjW0556qonPDhJFBsNYpw==
+"@serverless-devs/s@^3.1.10":
+  version "3.1.10"
+  resolved "https://registry.yarnpkg.com/@serverless-devs/s/-/s-3.1.10.tgz#b3fe2c78d854ac384adeb8db928bfbdf9d3ba57a"
+  integrity sha512-BIKbyOVpu+Xb2MBYWZoOwOSLhlLVUquzWjoIHMg4yPpthTGUFhMAtQnR8iKeI2cYTTz/8dS13TNzO9qwhpqE1A==
 
 "@sindresorhus/is@^7.0.1":
   version "7.0.1"
