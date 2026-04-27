@@ -12,7 +12,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "s deploy function --use-local -y"
+    "deploy": "s deploy --use-local -y"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.14.0",
@@ -20,5 +20,6 @@
     "git-repo-info": "^2.1.1",
     "nuxt": "^4.4.2",
     "postcss-custom-properties": "^15.0.1"
-  }
+  },
+  "packageManager": "yarn@4.14.1"
 }

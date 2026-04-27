@@ -6,7 +6,7 @@
 
 - 这是 `Code: Certs` 的官网，技术栈是 Nuxt 3 + Tailwind CSS。
 - 当前站点是轻量级静态站点，核心页面只有首页，结构简单但承担产品介绍和导流作用。
-- 部署目标是 FC 上的静态站点，`s.yaml` 通过 `website-fc` 插件处理静态资源发布。
+- 部署目标仍是 FC 上的静态站点，但 `s.yaml` 现已改成 `fc3 + website-fc-serve`：先 `yarn generate` 产出静态资源，再由插件注入 `serve` 运行时包装。
 
 ## 核心代码结构
 
@@ -22,6 +22,8 @@
 - `yarn generate` 前会先执行 `pregenerate`，因此改动生成链路时要一起检查 `generate-git-info.js`。
 - 首页统计数字目前是硬编码数据，源码里已经留了 “fetch api” 的 TODO；若要改成动态数据，属于架构变更，不是简单文案调整。
 - 当前文案和页面目标用户主要是中文读者，改文案时优先保留中文语境和产品导向。
+- `website-fc-serve` 只在 `pre-deploy` 阶段生效，函数运行时、Nodejs22 官方层、`serve` 依赖与 `customRuntimeConfig` 都由插件自动注入；不要手工把这些配置再写回 `s.yaml`。
+- 站点当前不是 SPA，`website-fc-serve` 默认首页仍是 `index.html`，不要无故打开 `fallbackToIndex`。
 
 ## 开发与验证命令
 
