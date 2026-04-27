@@ -39,6 +39,7 @@
 - `README.md` 只做了非常简短的仓库介绍，真正的操作约束以 `package.json`、`s.yaml` 和本文件为准。
 - `s.yaml` 使用了 `dummy-handler` 与 `custom` runtime 组合来承载静态站点发布，不要在不了解 DevsApp 流程的情况下随意改动。
 - 如果只是改首页视觉或文案，不要顺手引入需要额外服务端接口的能力。
+- GitHub Actions 的 runner 可能自带 Yarn 1；当前仓库通过 `packageManager: yarn@4.x` 固定 Yarn 版本，所以 CI 里安装依赖前要先执行 `corepack enable`，并优先用 `.nvmrc` 对齐 Node 版本后再跑 `yarn install --immutable`。
 
 ## 改动建议
 
