@@ -20,5 +20,9 @@
     "nuxt": "^4.4.2",
     "postcss-custom-properties": "^15.0.1"
   },
+  "resolutions": {
+    "serialize-javascript@npm:^6.0.1": "7.0.5",
+    "unhead@npm:2.1.12": "2.1.13"
+  },
   "packageManager": "yarn@4.14.1"
 }

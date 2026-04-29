@@ -40,6 +40,7 @@
 - `s.yaml` 使用了 `dummy-handler` 与 `custom` runtime 组合来承载静态站点发布，不要在不了解 DevsApp 流程的情况下随意改动。
 - 如果只是改首页视觉或文案，不要顺手引入需要额外服务端接口的能力。
 - GitHub Actions 的 runner 可能自带 Yarn 1；当前仓库通过 `packageManager: yarn@4.x` 固定 Yarn 版本，所以 CI 里安装依赖前要先执行 `corepack enable`，并优先用 `.nvmrc` 对齐 Node 版本后再跑 `yarn install --immutable`。
+- 当 GitHub Dependabot 告警落在 `yarn.lock` 的传递依赖上，而直接依赖已经是最新稳定版时，优先先用 `yarn up -R` 刷新仍在 semver 范围内的子依赖；若上游把受影响包锁成了精确版本或旧 major，再在 `package.json` 里补最小 `resolutions` 覆盖，并重新跑 `yarn generate` 与 `yarn npm audit --all --recursive` 验证。
 
 ## 改动建议
 
