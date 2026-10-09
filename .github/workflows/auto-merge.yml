@@ -1,0 +1,140 @@
+name: Auto merge Dependabot PRs
+
+# 当 Dependabot 提交或刷新依赖升级 PR 时, 若该 PR 无冲突则自动合并.
+#
+# 本仓库的情况决定了「门槛」是什么:
+# - 唯一的 CI 工作流 nuxtjs.yaml 只在 push 到 master 时触发, PR 上没有任何
+#   check run, 所以 mergeable_state 会立即是 clean. 也就是说这里判的不是
+#   「CI 绿了没」, 而是「能不能合」: 无冲突 + 非草稿 + 作者可信.
+# - master 没有分支保护, 也没有 ruleset, 因此不会出现 blocked.
+# - 仓库设置里 allow_auto_merge 是关的, 所以不能用 gh pr merge --auto
+#   (那会把合并时机交给 GitHub 的原生自动合并); 这里直接调用 gh pr merge,
+#   判定完全由下面的脚本掌握.
+# - 删分支由仓库的 delete_branch_on_merge 设置负责, 合并后 dependabot 分支
+#   会被自动清理.
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+  # 手动入口: 用于立刻处理已存在的 PR, 或捞回漏合并的 PR
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: '要处理的 PR 编号, 留空表示最新的 dependabot PR'
+        required: false
+
+# contents: write 用于删除分支, pull-requests: write 用于合并 PR
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    # PR 作者必须是 dependabot, 这样 Copilot 等其他来源的 PR 不会被误合.
+    # 同一种 bot 在不同 API 里有两种写法, 两种都要认: 事件 payload 与 REST 里是
+    # dependabot[bot], 而 GraphQL 里是 app/dependabot.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(
+        fromJSON('["dependabot[bot]", "app/dependabot", "dependabot-preview[bot]"]'),
+        github.event.pull_request.user.login
+      )
+    runs-on: ubuntu-latest
+    steps:
+      # 刻意不 checkout 任何 PR 代码. pull_request_target 带写权限运行在 base
+      # 分支上下文, 若同时执行 PR 里的代码, 就是一条完整的提权路径.
+      # 这里只调用 GitHub API, 不接触 PR 的任何文件内容.
+      - name: 合并依赖升级 PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          INPUT_PR_NUMBER: ${{ inputs.pr_number }}
+          EVENT_PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+
+          # 1. 手动触发时若未指定编号, 取最新的 dependabot PR
+          PR_NUMBER="${INPUT_PR_NUMBER:-$EVENT_PR_NUMBER}"
+
+          if [ -z "$PR_NUMBER" ]; then
+            # 这里不能用 --author dependabot. gh pr list 走 GraphQL, bot 的 login
+            # 是 app/dependabot, 而 --author 做的是精确匹配, 传 dependabot 会返回空.
+            # 同一种 bot 的两种拼法都认, 见下面 pull_request.user.login 的判断.
+            PR_NUMBER=$(gh pr list --state open --limit 50 --json number,author \
+              --jq '[.[] | select(.author.login == "app/dependabot" or .author.login == "dependabot[bot]")] | .[0].number // empty')
+            if [ -z "$PR_NUMBER" ]; then
+              echo "没有找到打开状态的 dependabot PR, 结束."
+              exit 0
+            fi
+          fi
+
+          echo "处理 PR #$PR_NUMBER."
+
+          # 2. 三重过滤: 作者是 dependabot + 非草稿 + 带 dependencies 标签.
+          #    一律走 REST 查询, 因为它的 user.login 才是规范的 dependabot[bot] 形式.
+          PR_INFO=$(gh api "repos/$GH_REPO/pulls/$PR_NUMBER" \
+            --jq '[.user.login, (.draft|tostring), (.mergeable_state // "UNKNOWN")] | join(" ")')
+          HEAD_SHA=$(gh api "repos/$GH_REPO/pulls/$PR_NUMBER" --jq '.head.sha')
+          LABELS=$(gh api "repos/$GH_REPO/issues/$PR_NUMBER/labels" --jq '[.[].name] | join(",")')
+
+          read -r author is_draft mergeable_state <<< "$PR_INFO"
+
+          if [ "${author#dependabot}" = "$author" ]; then
+            echo "PR #$PR_NUMBER 的作者是 $author, 不是 dependabot, 跳过."
+            exit 0
+          fi
+
+          if [ "$is_draft" = "true" ]; then
+            echo "PR #$PR_NUMBER 是草稿, 跳过."
+            exit 0
+          fi
+
+          case ",$LABELS," in
+            *,dependencies,*) ;;
+            *)
+              echo "PR #$PR_NUMBER 没有 dependencies 标签 (当前: ${LABELS:-无}), 跳过."
+              exit 0
+            ;;
+          esac
+
+          # 3. 依赖分支 force-push 后, GitHub 可能还没算完冲突检测, 结果会是 unknown.
+          #    轮询等待一个确定的结论.
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            mergeable_state=$(gh api "repos/$GH_REPO/pulls/$PR_NUMBER" \
+              --jq '.mergeable_state // "UNKNOWN"')
+            echo "第 $attempt 次检查, mergeable_state = $mergeable_state"
+
+            if [ "$mergeable_state" != "unknown" ]; then
+              break
+            fi
+
+            if [ "$attempt" -eq 10 ]; then
+              echo "等待冲突检测结果超时, 本次不合并, 等待下次事件."
+              exit 0
+            fi
+
+            sleep 6
+          done
+
+          # 4. 只在真的可以合并时才动手.
+          #    clean    = 可合并且已同步
+          #    unstable = 可合并, 只是有检查没过. 本仓库 PR 上没有 check run,
+          #              这一档实际很少出现, 保留是为了将来给 master 加分支保护
+          #              或 PR 级 CI 时不必改这里.
+          #    behind   = 分支落后于 master, 与 dirty(有冲突)/blocked(被保护规则
+          #              拦住) 一样, 都该交给人工.
+          case "$mergeable_state" in
+            clean|unstable)
+              ;;
+            *)
+              echo "PR #$PR_NUMBER 状态为 $mergeable_state (有冲突或被保护规则阻止), 跳过合并."
+              exit 0
+              ;;
+          esac
+
+          # 5. squash 合并, 并锁定 head 提交: 若检查通过后依赖分支又被改写,
+          #    合并会自动放弃, 而不是把错误的代码合进来.
+          #    分支清理由仓库的 delete_branch_on_merge 设置负责.
+          echo "开始合并 PR #$PR_NUMBER (head $HEAD_SHA)."
+          gh pr merge "$PR_NUMBER" --squash --match-head-commit "$HEAD_SHA"
+          echo "PR #$PR_NUMBER 已合并."
